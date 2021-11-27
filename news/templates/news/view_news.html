@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block subtitle %}
+	{{subtitle}}
+{% endblock %}
+{% block sidebar %}
+	<div class="col-md-2">
+		<ul class="gorys__list">
+			<li class="gorys__link">
+				<a href="{% url 'home' %}" class="gorys__title">All</a>
+			</li>
+		</ul>
+		{% include 'inc/_sidebar.html'%}
+		</div>
+{% endblock %}
+{% block title %}
+	{{news_item.title}} :: {{block.super}}
+{% endblock %} 
+{% block content %}
+<div class="col-md-10">
+					<div class="card-dark">
+						<div class="card-header">
+							<b>Категория:</b> <a href="{{ news_item.category.get_absolute_url }}">{{ news_item.category }}</a>
+						</div>
+						<div class="card-body">
+							<div class="media">
+								{% if news_item.photo %}
+									<img src="{{ news_item.photo.url }}" alt="">
+								{% else %}
+									<img src="https://picsum.photos/id/1060/536/354?blur=2" alt="Нету фото">
+								{% endif %}
+								<div class="media__body">
+									<h5 class="card-title {% cycle 'text-success' 'text-danger' 'text-warning' 'text-dark' 'text-info' %} "><b>Наименованаие: </b> {{news_item.title}}</h5>
+								<p class="card-text"><b>Контент: <br></b> {{news_item.content|safe}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+		</div>
+{% endblock %}

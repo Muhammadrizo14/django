@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<title>{%block title%} Новости из всего мира! {%endblock%}</title>
+</head>
+<body>
+<div class="wrapper">
+	{% include 'inc/_nav.html' %}
+	<h1 class="subtitle">{% block subtitle %}  {% endblock %}</h1>
+	<div class="row hundred">
+		{%block sidebar%}  {%endblock%}
+		{%block content%}  {%endblock%}
+	</div>
+</div>
+
+
+</body>
+</html>

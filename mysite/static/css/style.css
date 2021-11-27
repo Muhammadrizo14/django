@@ -1,0 +1,41 @@
+img {
+  width: 500px;
+  height: 300px;
+}
+
+
+li {
+  list-style: none;
+}
+
+
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+
+
+
+.wrapper {
+  overflow: hidden;
+}
+
+
+
+
+
+.card {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+body {
+    background-color:#333!important;
+    color:#fff !important;
+}
+
+

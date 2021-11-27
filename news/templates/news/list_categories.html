@@ -1,0 +1,11 @@
+<div class="gorys">
+	{% for item in categories %}
+		<ul class="gorys__list">
+			<li class="gorys__link">
+				<a href="{{ item.get_absolute_url }}" class="gorys__title">{{item.title}}</a>
+				<span class="badge bg-primary rounded-pill">{{item.cnt}}</span>
+			</li>
+		</ul>
+
+	{% endfor %}
+</div>

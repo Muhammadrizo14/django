@@ -1,0 +1,23 @@
+{% load news_tags %}
+
+
+{% comment %}
+	<div class="gorys">
+	{% get_categories as categories %}
+	{% for item in categories %}
+		<ul class="gorys__list">
+			<li class="gorys__link">
+				<a href="{% url 'category' item.pk %}" class="gorys__title">{{item.title}}</a>
+			</li>
+		</ul>
+	{% endfor %}
+</div>
+
+{% endcomment %}
+
+
+
+
+
+{% show_categories %}
+

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block subtitle %}
+	{{subtitle}}
+{% endblock %}
+{% block sidebar %}
+	<div class="col-md-2">
+		<ul class="gorys__list">
+			<li class="gorys__link">
+				<a href="{% url 'home' %}" class="gorys__title">All</a>
+			</li>
+		</ul>
+		<div class="sidebar__that">
+			{% include 'inc/_sidebar.html' %}
+		</div>
+	</div>
+{% endblock %}
+{% block content %}
+	<div class="col-md-10">
+		{% for item in news %}
+				<div class="card-dark">
+					<div class="card-header">
+						<b>Категория:</b> {{ item.category }}
+					</div>
+					<div class="card-body">
+						<div class="media">
+							{% if item.photo %}
+								<img src="{{ item.photo.url }}" alt="">
+							{% else %}
+								<img src="https://picsum.photos/id/1060/536/354?blur=2" alt="Нету фото">
+							{% endif %}
+							<div class="media__body">
+								<h5 class="card-title {% cycle 'text-success' 'text-danger' 'text-warning' 'text-dark' 'text-info' %} "><b>Наименованаие: </b> {{item.title}}</h5>
+							<p class="card-text"><b>Контент: <br></b> {{item.content|safe|truncatewords:50}}</p>
+						<a href="{{ item.get_absolute_url }}" class="btn btn-primary">Read more ... </a>
+							</div>
+						</div>
+					</div>
+				</div>
+				{%empty%}
+				<h1>
+					Не найдено
+				</h1>
+		{% endfor %}
+	</div>
+{% endblock %}
