@@ -3,6 +3,12 @@ img {
   height: 300px;
 }
 
+@media(max-width: 800px) {
+    img {
+        width:100%;
+    }
+}
+
 
 li {
   list-style: none;
